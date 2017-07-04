@@ -1,0 +1,47 @@
+{
+    "IsEnabled":  true,
+    "EngineConfiguration":  {
+                                "Components":  [                                                  
+                                                   {
+                                                       "FullName":  "AWS.EC2.Windows.CloudWatch.PerformanceCounterComponent.PerformanceCounterInputComponent,AWS.EC2.Windows.CloudWatch",
+                                                       "Id":  "PerformanceCounter",
+                                                       "Parameters":  {
+                                                                          "CategoryName":  "Memory",
+                                                                          "CounterName":  "Available MBytes",
+                                                                          "DimensionName":  "InstanceId",
+                                                                          "DimensionValue":  "{instance_id}",
+                                                                          "InstanceName":  "",
+                                                                          "MetricName":  "Memory",
+                                                                          "Unit":  "Megabytes"
+                                                                      }
+                                                   },
+                                                   {
+                                                       "FullName":  "AWS.EC2.Windows.CloudWatch.CloudWatch.CloudWatchOutputComponent,AWS.EC2.Windows.CloudWatch",
+                                                       "Id":  "CloudWatch",
+                                                       "Parameters":  {
+                                                                          "AccessKey":  "",
+                                                                          "NameSpace":  "Windows/Default",
+                                                                          "Region":  "eu-west-1",
+                                                                          "SecretKey":  ""
+                                                                      }
+                                                   },
+                                                   {
+                                                       "FullName":  "AWS.EC2.Windows.CloudWatch.CloudWatchLogsOutput,AWS.EC2.Windows.CloudWatch",
+                                                       "Id":  "CloudWatchLogsIIS",
+                                                       "Parameters":  {
+                                                                          "AccessKey":  "",
+                                                                          "LogGroup":  "MY LOG GROUP NAME",
+                                                                          "LogStream":  "{hostname}",
+                                                                          "Region":  "eu-west-1",
+                                                                          "SecretKey":  ""
+                                                                      }
+                                                   }                                                   
+                                               ],
+                                "Flows":  {
+                                              "Flows":  [
+                                                            "PerformanceCounter,CloudWatch"
+                                                        ]
+                                          },
+                                "PollInterval":  "00:00:15"
+                            }
+}
